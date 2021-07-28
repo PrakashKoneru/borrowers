@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import SignUpForm from './components/signUpForm';
+// import SignUpForm from './components/signUpForm';
 
 function updateAction(state, payload) {
     return {
@@ -95,11 +95,11 @@ const Onboarding = (props) => {
 						>
 							{calculationId && (
 								<form onSubmit={handleSubmit(postSignUpData)}>
-									<SignUpForm 
+									{/* <SignUpForm 
 										fieldValues={fieldValues}
 										register={register}
 										errors={errors}
-									/>
+									/> */}
 									<Box
 										display="flex"
 										justifyContent="flex-end"
