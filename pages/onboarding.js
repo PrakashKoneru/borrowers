@@ -49,7 +49,7 @@ const Onboarding = (props) => {
 		actions.updateAction(data);
 		moveToNextStep();
 		if(currentStep === Steps.length - 1) {
-			const envUrl = process.env.NODE_ENV === 'production' ? '/borrowers/api/authentication/scoreCalculator' : 'http://localhost:5000/scoreCalculator';
+			const envUrl = process.env.NODE_ENV === 'production' ? '/borrowers/api/authentication/scoreCalculator' : 'http://localhost:5002/scoreCalculator';
 			axios.post(envUrl, data)
 			.then(({ data }) => {
 				console.log(data)
@@ -58,7 +58,7 @@ const Onboarding = (props) => {
 		}
 	}
 	const postSignUpData = ({email, password}) => {
-		const envUrl = process.env.NODE_ENV === 'production' ? '/borrowers/api/authentication/signUp' : 'http://localhost:5000/authentication/signUp';
+		const envUrl = process.env.NODE_ENV === 'production' ? '/borrowers/api/authentication/signUp' : 'http://localhost:5002/authentication/signUp';
 		axios.post(envUrl, { email, password, calculation_id: calculationId })
 		.then(({ data: { pToken } }) => {
 			Cookies.set('pToken', pToken);
