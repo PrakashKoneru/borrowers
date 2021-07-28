@@ -49,7 +49,8 @@ const Onboarding = (props) => {
 		actions.updateAction(data);
 		moveToNextStep();
 		if(currentStep === Steps.length - 1) {
-			axios.post('http://localhost:5000/scoreCalculator', data)
+			const envUrl = process.env.NODE_ENV === 'production' ? '/borrowers/api/authentication/scoreCalculator' : 'http://localhost:5000/scoreCalculator';
+			axios.post(envUrl, data)
 			.then(({ data }) => {
 				console.log(data)
 				setCalculationId(data.calculationId);
@@ -57,7 +58,8 @@ const Onboarding = (props) => {
 		}
 	}
 	const postSignUpData = ({email, password}) => {
-		axios.post('http://localhost:5000/authentication/signUp', { email, password, calculation_id: calculationId })
+		const envUrl = process.env.NODE_ENV === 'production' ? '/borrowers/api/authentication/signUp' : 'http://localhost:5000/authentication/signUp';
+		axios.post(envUrl, { email, password, calculation_id: calculationId })
 		.then(({ data: { pToken } }) => {
 			Cookies.set('pToken', pToken);
 			router.push('/dashboard');

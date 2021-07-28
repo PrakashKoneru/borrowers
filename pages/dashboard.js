@@ -11,6 +11,7 @@ import PendingLoanStatus from './components/loanStatusComponents/pendingLoanStat
 const Dashboard = () => {
 	const [loans, setLoans] = useState();
 	useEffect(async () => {
+		const envUrl = process.env.NODE_ENV === 'production' ? '/borrowers/api/dashboard' : 'http://localhost:5000/dashboard';
 		const { data } = await axios.get('http://localhost:5000/dashboard', 
 			{
 				headers: {
