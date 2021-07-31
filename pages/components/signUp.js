@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeContext } from '../_app';
 import { Box, Input, Checkbox, Flex } from '@chakra-ui/react';
 
-const SignUpForm = ({ register, errors }) => {
+const SignUp = ({ register, errors }) => {
 	if(!register) return null;
 	return (
 		<ThemeContext.Consumer>
@@ -87,4 +87,4 @@ const SignUpForm = ({ register, errors }) => {
 	);
 }
 
-export default SignUpForm;
+export default SignUp;
