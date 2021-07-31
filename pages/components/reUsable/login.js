@@ -12,12 +12,12 @@ export default function Login() {
   const [submissionError, setSubmissionError] = useState(false);
 
   const postSignInData = ({email, password}) => {
-    const baseURL = process.env.NODE_ENV === 'production' ? '/borrowers/api/authentication/login' : 'http://localhost:5002/authentication/login';
+    const baseURL = '/borrowers/authentication/login';
     setSubmissionError(false);
 		axios.post(baseURL, { email, password })
 		.then(({ data }) => {
 			Cookies.set('pToken', data.pToken);
-			router.push('/dashboard');
+			router.push('/borrowers/dashboard');
 		}).catch((error) => {
       error.response && setSubmissionError(error.response.data)
     });

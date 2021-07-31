@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../db");
 
-router.post("/scoreCalculator", async (req, res) => {
+router.post("/", async (req, res) => {
 	try {
     const { 
 			loan_amount,

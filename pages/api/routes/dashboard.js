@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../db");
 
-router.get("/dashboard", async (req, res) => {
+router.get("/", async (req, res) => {
 	try{
 		const loans = await pool().query("SELECT * FROM loans WHERE borrower_id = $1", [req.user_id]);
 		return res.json({ loans: loans.rows[0] });
