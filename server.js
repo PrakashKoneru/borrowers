@@ -19,6 +19,8 @@ app.prepare().then(() => {
 
     //routes
     server.use("/borrowers/authentication", require("./pages/api/routes/auth"));
+    server.use("/borrowers/loanApplication", middlewareAuth, require("./pages/api/routes/loanApplication"));
+    // server.use("/borrowers/loanApplication/apply", middlewareAuth, require("./pages/api/routes/loanApplication"));
     server.use("/borrowers/scoreCalculator", require("./pages/api/routes/scoreCalculator"));
     server.use("/borrowers/dashboardApi", middlewareAuth, require("./pages/api/routes/dashboard"));
   

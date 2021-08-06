@@ -1,0 +1,131 @@
+const express = require("express");
+const router = express.Router();
+const pool = require("../db");
+
+router.post("/getRate", async (req, res) => {
+	try{
+		const { ssn, firstName, lastName, phnNumber, address } = req.body;
+		function randomIntFromInterval(min, max) { // min and max included 
+			return Math.floor(Math.random() * (max - min + 1) + min)
+		}
+
+		let rndInt;
+
+		if (ssn === '001-000-0000') {
+			rndInt = randomIntFromInterval(7, 9)
+		} else if (ssn === '002-000-0000') {
+			rndInt = randomIntFromInterval(10, 12)
+		} else if (ssn === '003-000-0000') {
+			rndInt = randomIntFromInterval(12, 15)
+		} else if (ssn === '004-000-0000') {
+			rndInt = randomIntFromInterval(16, 19)
+		} else {
+			rndInt = randomIntFromInterval(7, 19)
+		}
+
+		return res.json({ intRate: `${rndInt}%` });
+	}	catch(err) {
+		console.error(err.message);
+		res.status(500).send("Server error");
+	}
+});
+
+router.post("/apply", async (req, res) => {
+	try{
+		const { intRate, ssnCopy } = req.body;
+		function randomIntFromInterval(min, max) { // min and max included 
+			return Math.floor(Math.random() * (max - min + 1) + min)
+		}
+
+		let rndInt;
+
+		// if (ssn === '001-000-0000') {
+		// 	rndInt = randomIntFromInterval(7, 9)
+		// } else if (ssn === '002-000-0000') {
+		// 	rndInt = randomIntFromInterval(10, 12)
+		// } else if (ssn === '003-000-0000') {
+		// 	rndInt = randomIntFromInterval(12, 15)
+		// } else if (ssn === '004-000-0000') {
+		// 	rndInt = randomIntFromInterval(16, 19)
+		// } else {
+		// 	rndInt = randomIntFromInterval(7, 19)
+		// }
+
+		const newLoan = await pool().query(
+			`INSERT INTO loans( 
+				loan_amnt,term,interest_rate_percent,installment,loan_grade,
+				loan_sub_grade,emp_title,emp_length,home_ownership,annual_inc,
+				verification_status,loan_issue_date,loan_status,purpose,title,zip_code,
+				addr_state,dti,inq_last_6mths,open_acc,revol_bal,revol_util,total_acc,
+				total_pymnt,total_rec_principal,total_rec_interest,total_rec_late_fee,
+				last_pymnt_date,last_pymnt_amnt,next_pymnt_date,last_credit_pull_date,
+				last_fico_range_high,last_fico_range_low,application_type,
+				acc_open_past_24mths,bc_util,months_since_old_il_acct,
+				months_since_old_rev_tl_op,months_since_rcnt_rev_tl_op,
+				months_since_rcnt_tl,mort_acc,months_since_recent_bc,tot_hi_cred_lim,
+				diff_fico_range_high_fico_range_low,avg_fico_range_high_fico_range_low,
+				us_unemploy_rate_next_3yr_avg,diff_issue_date_earliest_cr_line_date_months,
+				div_tot_coll_amt_tot_hi_cred_lim,div_tot_cur_bal_tot_hi_cred_lim,
+				div_total_bal_ex_mort_tot_hi_cred_lim,div_total_bc_limit_tot_hi_cred_lim,
+				div_total_il_high_credit_limit_tot_hi_cred_lim,div_num_actv_bc_tl_total_acc,
+				div_num_actv_rev_tl_total_acc,div_num_bc_sats_total_acc,
+				div_num_bc_tl_total_acc,div_num_il_tl_total_acc,div_num_op_rev_tl_total_acc,
+				div_num_rev_accts_total_acc,div_num_sats_total_acc,
+				div_acc_now_delinq_open_acc,div_num_accts_ever_120_pd_open_acc,
+				div_num_tl_30dpd_open_acc,div_num_tl_90g_dpd_24m_open_acc,
+				div_num_tl_op_past_12m_open_acc,div_delinq_2yrs_open_acc,
+				div_pub_rec_total_acc,div_collections_12_mths_ex_med_open_acc,
+				div_chargeoff_within_12_mths_open_acc,div_pub_rec_bankruptcies_total_acc,
+				div_tax_liens_total_acc,div_delinq_amnt_tot_cur_bal,div_loan_amnt_non_revol_bal,
+				div_acc_open_past_24mths_open_acc,default_probability_percent_at_issue,
+				approval_status,approver_id,pending_ids,rejected_ids,borrower_id	
+		 )
+		 SELECT loan_amnt,term,interest_rate_percent,installment,loan_grade,
+			loan_sub_grade,emp_title,emp_length,home_ownership,annual_inc,
+			verification_status,loan_issue_date,loan_status,purpose,title,zip_code,
+			addr_state,dti,inq_last_6mths,open_acc,revol_bal,revol_util,total_acc,
+			total_pymnt,total_rec_principal,total_rec_interest,total_rec_late_fee,
+			last_pymnt_date,last_pymnt_amnt,next_pymnt_date,last_credit_pull_date,
+			last_fico_range_high,last_fico_range_low,application_type,
+			acc_open_past_24mths,bc_util,months_since_old_il_acct,
+			months_since_old_rev_tl_op,months_since_rcnt_rev_tl_op,
+			months_since_rcnt_tl,mort_acc,months_since_recent_bc,tot_hi_cred_lim,
+			diff_fico_range_high_fico_range_low,avg_fico_range_high_fico_range_low,
+			us_unemploy_rate_next_3yr_avg,diff_issue_date_earliest_cr_line_date_months,
+			div_tot_coll_amt_tot_hi_cred_lim,div_tot_cur_bal_tot_hi_cred_lim,
+			div_total_bal_ex_mort_tot_hi_cred_lim,div_total_bc_limit_tot_hi_cred_lim,
+			div_total_il_high_credit_limit_tot_hi_cred_lim,div_num_actv_bc_tl_total_acc,
+			div_num_actv_rev_tl_total_acc,div_num_bc_sats_total_acc,
+			div_num_bc_tl_total_acc,div_num_il_tl_total_acc,div_num_op_rev_tl_total_acc,
+			div_num_rev_accts_total_acc,div_num_sats_total_acc,
+			div_acc_now_delinq_open_acc,div_num_accts_ever_120_pd_open_acc,
+			div_num_tl_30dpd_open_acc,div_num_tl_90g_dpd_24m_open_acc,
+			div_num_tl_op_past_12m_open_acc,div_delinq_2yrs_open_acc,
+			div_pub_rec_total_acc,div_collections_12_mths_ex_med_open_acc,
+			div_chargeoff_within_12_mths_open_acc,div_pub_rec_bankruptcies_total_acc,
+			div_tax_liens_total_acc,div_delinq_amnt_tot_cur_bal,div_loan_amnt_non_revol_bal,
+			div_acc_open_past_24mths_open_acc,default_probability_percent_at_issue,
+			approval_status,approver_id,pending_ids,rejected_ids,borrower_id	
+			FROM loans WHERE loan_id=$1 
+			RETURNING *
+		 `,
+		 ['6996728d-8cde-4c3e-8808-08b892020754']
+		)
+
+		const newLoanId = newLoan.rows[0].loan_id;
+		pool().query('UPDATE loans SET borrower_id = $1, approval_status = $2 WHERE loan_id = $3 RETURNING *', [
+			req.user_id, 'pending', newLoanId
+		],
+		async (error, results) => {
+			if (error) {
+				throw error
+			}
+			return res.json({ loan: results.rows[0] });
+		})
+	}	catch(err) {
+		console.error(err.message);
+		res.status(500).send("Server error");
+	}
+});
+
+module.exports = router;

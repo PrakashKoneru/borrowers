@@ -7,13 +7,12 @@ import moment from 'moment';
 import ApprovedLoanStatus from '../components/loanStatusComponents/approvedLoanStatus';
 import RejectedLoanStatus from '../components/loanStatusComponents/rejectedLoanStatus';
 import PendingLoanStatus from '../components/loanStatusComponents/pendingLoanStatus';
+import SsnApplication from '../components/loanStatusComponents/ssnApplication';
 
 const Dashboard = () => {
-	console.log('called dashboard component')
 	const [loans, setLoans] = useState();
 	useEffect(async () => {
 		const envUrl = '/borrowers/dashboardApi';
-		console.log(envUrl, 'envUrl')
 		const { data } = await axios.get(envUrl,
 			{
 				headers: {
@@ -24,15 +23,13 @@ const Dashboard = () => {
 		setLoans(data.loans)
 	}, [])
 	
-	if(!loans) return null;
-
 	return (
 		<ThemeContext.Consumer>
 			{(theme) => {
-				if(loans.approval_status === 'approved') return (<ApprovedLoanStatus loan={loans} />)
-				if(loans.approval_status === 'rejected') return <RejectedLoanStatus loan={loans} />
-				if(loans.approval_status === 'pending') return <PendingLoanStatus loan={loans} />
-				return null;
+				if(loans && loans.approval_status === 'approved') return (<ApprovedLoanStatus loan={loans} />)
+				if(loans && loans.approval_status === 'rejected') return <RejectedLoanStatus loan={loans} />
+				if(loans && loans.approval_status === 'pending') return <PendingLoanStatus loan={loans} />
+				return (<SsnApplication setLoans={setLoans} />);
 			}}
 		</ThemeContext.Consumer>
 	)

@@ -52,7 +52,6 @@ const Onboarding = (props) => {
 			const envUrl =  '/borrowers/scoreCalculator'
 			axios.post(envUrl, data)
 			.then(({ data }) => {
-				console.log(data)
 				setCalculationId(data.calculationId);
 			});
 		}
