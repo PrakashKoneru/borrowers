@@ -39,14 +39,14 @@ const One = ({ register, errors }) => {
 										placeholder="Loan Amount ($)"
 										{...register("loan_amount", { 
 											required: true,
-											validate: value => value >= 1000 && value <= 5000
+											validate: value => value >= 1000 && value <= 15000
 										})}
 									/>
 									<Box
 										mt="5px"
 										color={theme.colors.gray}
 									>
-										$1000 - $5000
+										$1000 - $15000
 									</Box>
 									{errors.loan_amount && (
 										<Box color={theme.colors.red}>
@@ -67,10 +67,10 @@ const One = ({ register, errors }) => {
 										mt="5px"
 										{...register("loan_purpose", { required: true })}
 									>
-										<option value="option1">Option 1</option>
-										<option value="option2">Option 2</option>
-										<option value="option3">Option 3</option>
-										<option value="option4">Option 4</option>
+										<option value="Credit Cards">Credit Cards</option>
+										<option value="Debt Consolidation">Debt Consolidation</option>
+										<option value="Student Loans">Student Loans</option>
+										<option value="Other Large Purchase">Other Large Purchase</option>
 									</Select>
 								</Box>
 							</Flex>

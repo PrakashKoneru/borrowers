@@ -184,7 +184,7 @@ const SsnApplication = ({ setLoans, ...props }) => {
 												w="150px"
 												type="submit"
 											>
-												Get Int Rate
+												Get Interest Rate
 											</Button>
 										</Flex>
 									</Box>

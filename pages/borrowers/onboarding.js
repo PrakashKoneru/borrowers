@@ -26,7 +26,7 @@ function updateAction(state, payload) {
 const Onboarding = (props) => {
 	const { register, handleSubmit, watch, formState: { errors } } = useForm();
 	const [currentStep, setCurrentStep] = useState(0);
-	const [calculationId, setCalculationId] = useState(null);
+	const [calculationData, setCalculationData] = useState(null);
 	const { actions, state } = useStateMachine({ updateAction });
 	const router = useRouter();
 
@@ -52,13 +52,13 @@ const Onboarding = (props) => {
 			const envUrl =  '/borrowers/scoreCalculator'
 			axios.post(envUrl, data)
 			.then(({ data }) => {
-				setCalculationId(data.calculationId);
+				setCalculationData(data);
 			});
 		}
 	}
 	const postSignUpData = ({email, password}) => {
 		const envUrl =  '/borrowers/authentication/signUp';
-		axios.post(envUrl, { email, password, calculation_id: calculationId })
+		axios.post(envUrl, { email, password, calculation_id: calculationData.calculationId })
 		.then(({ data: { pToken } }) => {
 			Cookies.set('pToken', pToken);
 			router.push('/borrowers/dashboard');
@@ -94,9 +94,10 @@ const Onboarding = (props) => {
 							flexDirection="column"
 							justifyContent="center"
 						>
-							{calculationId && (
+							{calculationData && calculationData.calculationId && (
 								<form onSubmit={handleSubmit(postSignUpData)}>
 									<SignUp
+										calculationData={calculationData}
 										fieldValues={fieldValues}
 										register={register}
 										errors={errors}
@@ -114,7 +115,7 @@ const Onboarding = (props) => {
 									</Box>
 								</form>
 							)}
-							{!calculationId && (
+							{!calculationData && (
 								<form onSubmit={handleSubmit(postScoreData)}>
 									<CurrentComponent
 										fieldValues={fieldValues}

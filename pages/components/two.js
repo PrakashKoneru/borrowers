@@ -99,10 +99,11 @@ const Two = ({ register, errors }) => {
 										mt="5px"
 										{...register("highest_education_level", { required: true })}
 									>
-										<option value="option1">Option 1</option>
-										<option value="option2">Option 2</option>
-										<option value="option3">Option 3</option>
-										<option value="option4">Option 4</option>
+										<option value="High School">High School</option>
+										<option value="Masters">Masters</option>
+										<option value="Bachelors">Bachelors</option>
+										<option value="MBA">MBA</option>
+										<option value="Other">Other</option>
 									</Select>
 								</Box>
 							</Flex>

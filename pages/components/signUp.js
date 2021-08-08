@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeContext } from '../_app';
 import { Box, Input, Checkbox, Flex } from '@chakra-ui/react';
 
-const SignUp = ({ register, errors }) => {
+const SignUp = ({ register, errors, calculationData }) => {
 	if(!register) return null;
 	return (
 		<ThemeContext.Consumer>
@@ -11,10 +11,18 @@ const SignUp = ({ register, errors }) => {
 					<Box
 						w="100%"
 					>
+						<Flex
+							mt="15px"
+							fontSize="20px"
+							justifyContent="center"
+						>
+							Your estimated Interst Rate will be between {calculationData.intRange} APR.
+						</Flex>
 						<Box
 							fontSize="35px"
+							mt="20px"
 						>
-							Sign Up!
+							Sign Up To Apply!
 						</Box>
 						<Box
 							mt="20px"
@@ -41,6 +49,11 @@ const SignUp = ({ register, errors }) => {
 											required: true
 										})}
 									/>
+									{errors.email && (
+										<Box color={theme.colors.red}>
+										 Please enter a valid email.
+										</Box>
+									)}
 								</Box>
 							</Flex>
 							{/* Row 2 */}
@@ -66,6 +79,11 @@ const SignUp = ({ register, errors }) => {
 											required: true
 										})}
 									/>
+									{errors.password && (
+										<Box color={theme.colors.red}>
+										 Please enter a valid password.
+										</Box>
+									)}
 									<Box>
 									<Box mt="15px">
 										<Checkbox
@@ -73,9 +91,17 @@ const SignUp = ({ register, errors }) => {
 											borderColor="#495FBF"
 											size="lg"
 											outlineColor="none"
+											{...register("terms", { 
+												required: true
+											})}
 										></Checkbox>
 										<label style={{marginLeft: '10px', fontSize:'14px'}}> I agree to receive future communications from Paisa. </label>
 									</Box>
+									{errors.terms && (
+										<Box color={theme.colors.red}>
+										 Please accept to continue.
+										</Box>
+									)}
 									</Box>
 								</Box>
 							</Flex>

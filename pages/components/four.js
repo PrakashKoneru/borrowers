@@ -37,7 +37,7 @@ const Four = ({ fieldValues, register, errors }) => {
 									<Input
 										type="number"
 										mt="5px"
-										placeholder=">0"
+										placeholder="$"
 										{...register("outstanding_credit_balance", {
 											required: true
 										})}
@@ -67,7 +67,7 @@ const Four = ({ fieldValues, register, errors }) => {
 									<Input
 										type="number"
 										mt="5px"
-										placeholder=">0"
+										placeholder="$"
 										{...register("outstanding_other_loan_balance", {
 											required: true
 										})}
@@ -97,7 +97,7 @@ const Four = ({ fieldValues, register, errors }) => {
 									<Input
 										type="number"
 										mt="5px"
-										placeholder=">0"
+										placeholder="$"
 										{...register("savings", {
 											required: true
 										})}

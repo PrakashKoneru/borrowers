@@ -130,6 +130,11 @@ const Three = ({ fieldValues, register, errors }) => {
 											<option value="Yes">Yes</option>
 											<option value="No">No</option>
 										</Select>
+										{errors.income_from_other_sources && (
+											<Box color={theme.colors.red}>
+												Please select a valid option.
+											</Box>
+										)}
 								</Box>
 							</Flex>
 							{fieldValues.income_from_other_sources === 'Yes' && (
