@@ -128,13 +128,19 @@ const SsnApplication = ({ setLoans, ...props }) => {
 										</Box>
 										<Box mt="15px">
 											<Input
-												type="text"
+												type="number"
 												mt="5px"
 												placeholder="SSN"
 												{...register("ssn", { 
-													required: true
+													required: true,
+													validate: value => value.toString().length === 9
 												})}
 											/>
+											{errors.ssn && (
+												<Box color={theme.colors.red}>
+													Please enter a valid 9 digit SSN.
+												</Box>
+											)}
 										</Box>
 										<Box mt="10px">
 											<Input
@@ -145,6 +151,11 @@ const SsnApplication = ({ setLoans, ...props }) => {
 													required: true
 												})}
 											/>
+											{errors.firstName && (
+												<Box color={theme.colors.red}>
+													Please enter a valid First Name.
+												</Box>
+											)}
 										</Box>
 										<Box mt="10px">
 											<Input
@@ -155,16 +166,27 @@ const SsnApplication = ({ setLoans, ...props }) => {
 													required: true
 												})}
 											/>
+											{errors.lastName && (
+												<Box color={theme.colors.red}>
+													Please enter a valid Last Name.
+												</Box>
+											)}
 										</Box>
 										<Box mt="10px">
 											<Input
-												type="text"
+												type="number"
 												mt="5px"
 												placeholder="Phone"
 												{...register("phnNumber", { 
-													required: true
+													required: true,
+													validate: value => value.toString().length === 10
 												})}
 											/>
+											{errors.phnNumber && (
+												<Box color={theme.colors.red}>
+													Please enter a valid 10 digit Phone Number.
+												</Box>
+											)}
 										</Box>
 										<Box mt="10px">
 											<Input
@@ -175,6 +197,11 @@ const SsnApplication = ({ setLoans, ...props }) => {
 													required: true
 												})}
 											/>
+											{errors.address && (
+												<Box color={theme.colors.red}>
+													Please enter a valid Address.
+												</Box>
+											)}
 										</Box>
 										<Flex
 											mt="25px"

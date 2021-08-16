@@ -108,17 +108,17 @@ export default function Simple() {
 								md: 'flex-start'
 							}}
 						>
-							<Link
+							{/* <Link
 								as={NextLink}
 								href='/borrowers'
-							>
+							> */}
 								<img
 									cursor='pointer'
 									src="/HeaderLogo.png"
 									height="54px"
 									width="150px"
 								/>
-							</Link>
+							{/* </Link> */}
 						</Flex>
           </HStack>
 					<HStack
