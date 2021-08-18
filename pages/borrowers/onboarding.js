@@ -59,8 +59,8 @@ const Onboarding = (props) => {
 	const postSignUpData = ({email, password}) => {
 		const envUrl =  '/borrowers/authentication/signUp';
 		axios.post(envUrl, { email, password, calculation_id: calculationData.calculationId })
-		.then(({ data: { pToken } }) => {
-			Cookies.set('pToken', pToken);
+		.then(({ data: { bToken } }) => {
+			Cookies.set('bToken', bToken);
 			router.push('/borrowers/dashboard');
 		});
 	}

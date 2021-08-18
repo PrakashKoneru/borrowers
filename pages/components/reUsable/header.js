@@ -28,7 +28,7 @@ const NavLink = ({ children }) => (
 );
 
 export default function Simple() {
-	const isLoggedIn = Cookies.get('pToken');
+	const isLoggedIn = Cookies.get('bToken');
 	const [disableScroll, setScroll] = useState(false);
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const { pathname } = useRouter();
@@ -140,7 +140,7 @@ export default function Simple() {
 							py="1px"
 						>
 							{isLoggedIn && (<Link
-								onClick={() => Cookies.remove('pToken')}
+								onClick={() => Cookies.remove('bToken')}
 								as={NextLink}
 								maxHeight="90px"
 								variant="navLink"
@@ -180,7 +180,7 @@ export default function Simple() {
 							fontSize="25px"
 						>
 							<Link
-								onClick={() => Cookies.remove('pToken')}
+								onClick={() => Cookies.remove('bToken')}
 								as={NextLink}
 								maxHeight="90px"
 								variant="navLink"

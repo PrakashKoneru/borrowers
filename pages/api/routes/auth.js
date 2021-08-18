@@ -27,9 +27,9 @@ router.post("/signUp", async (req, res) => {
       [email, bcryptPassword, user_role, calculation_id]
     );
 
-    const pToken = jwtGenerator(newUser.rows[0].user_id);
+    const bToken = jwtGenerator(newUser.rows[0].user_id);
 
-    return res.json({ pToken });
+    return res.json({ bToken });
     
   } catch (err) {
     console.error(err.message);
@@ -57,8 +57,8 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       return res.status(401).json("Invalid Credential");
     }
-    const pToken = jwtGenerator(user.rows[0].user_id);
-    return res.json({ pToken });
+    const bToken = jwtGenerator(user.rows[0].user_id);
+    return res.json({ bToken });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

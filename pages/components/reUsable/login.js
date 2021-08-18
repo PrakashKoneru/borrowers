@@ -16,7 +16,7 @@ export default function Login() {
     setSubmissionError(false);
 		axios.post(baseURL, { email, password })
 		.then(({ data }) => {
-			Cookies.set('pToken', data.pToken);
+			Cookies.set('bToken', data.bToken);
 			router.push('/borrowers/dashboard');
 		}).catch((error) => {
       error.response && setSubmissionError(error.response.data)

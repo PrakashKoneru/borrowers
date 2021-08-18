@@ -15,7 +15,7 @@ const SsnApplication = ({ setLoans, ...props }) => {
 		axios.post(envUrl, { ssn, firstName, lastName, phnNumber, address }, 
 			{
 				headers: {
-					pToken: Cookies.get('pToken')
+					bToken: Cookies.get('bToken')
 				}
 			}
 		)
@@ -28,7 +28,7 @@ const SsnApplication = ({ setLoans, ...props }) => {
 		axios.post(envUrl, { intRate, ssnCopy },
 			{
 				headers: {
-					pToken: Cookies.get('pToken')
+					bToken: Cookies.get('bToken')
 				}
 			}
 		)

@@ -16,7 +16,7 @@ const Dashboard = () => {
 		const { data } = await axios.get(envUrl,
 			{
 				headers: {
-					pToken: Cookies.get('pToken')
+					bToken: Cookies.get('bToken')
 				}
 			}
 		)
