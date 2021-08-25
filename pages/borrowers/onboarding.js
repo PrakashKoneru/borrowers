@@ -27,6 +27,7 @@ const Onboarding = (props) => {
 	const { register, handleSubmit, watch, formState: { errors } } = useForm();
 	const [currentStep, setCurrentStep] = useState(0);
 	const [calculationData, setCalculationData] = useState(null);
+	const [showSignUp, setShowSignUp] = useState(false);
 	const { actions, state } = useStateMachine({ updateAction });
 	const router = useRouter();
 
@@ -94,7 +95,43 @@ const Onboarding = (props) => {
 							flexDirection="column"
 							justifyContent="center"
 						>
-							{calculationData && calculationData.calculationId && (
+							{calculationData && calculationData.calculationId && !showSignUp && (
+								<>
+									<Flex
+										mt="15px"
+										fontSize="20px"
+										justifyContent="center"
+									>
+										Your estimated interest rate will be between {calculationData.intRange}.
+									</Flex>
+									<Flex
+										mt="15px"
+										fontSize="20px"
+										justifyContent="center"
+									>
+										{`Your estimated loan amount will be between ${calculationData.loanRange}.`}
+									</Flex>
+									<Flex
+										mt="50px"
+										fontSize="20px"
+										justifyContent="center"
+									>
+										<Button
+											onClick={() => setShowSignUp(true)}
+										>
+											Proceed to Sign Up
+										</Button>
+									</Flex>
+									<Flex
+											mt="5px"
+											fontSize="10px"
+											justifyContent="center"
+										>
+											*These numbers are for demo purposes only.
+										</Flex>
+								</>
+							)}
+							{showSignUp && (
 								<form onSubmit={handleSubmit(postSignUpData)}>
 									<SignUp
 										calculationData={calculationData}

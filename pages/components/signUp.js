@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeContext } from '../_app';
 import { Box, Input, Checkbox, Flex } from '@chakra-ui/react';
 
-const SignUp = ({ register, errors, calculationData }) => {
+const SignUp = ({ register, errors }) => {
 	if(!register) return null;
 	return (
 		<ThemeContext.Consumer>
@@ -11,13 +11,6 @@ const SignUp = ({ register, errors, calculationData }) => {
 					<Box
 						w="100%"
 					>
-						<Flex
-							mt="15px"
-							fontSize="20px"
-							justifyContent="center"
-						>
-							Your estimated Interst Rate will be between {calculationData.intRange} APR.
-						</Flex>
 						<Box
 							fontSize="35px"
 							mt="20px"

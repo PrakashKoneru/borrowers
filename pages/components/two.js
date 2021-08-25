@@ -66,7 +66,10 @@ const Two = ({ register, errors }) => {
 									<Input
 										mt="5px"
 										placeholder="Zip Code"
-										{...register("zip_code", { required: true })}
+										{...register("zip_code", {
+											required: true,
+											validate: value => value.toString().length >= 5 && value.toString().length <= 8
+										})}
 									/>
 									<Box
 										mt="5px"

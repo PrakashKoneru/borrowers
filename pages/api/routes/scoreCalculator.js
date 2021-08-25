@@ -70,7 +70,8 @@ router.post("/", async (req, res) => {
 		}
 		let rndInt = randomIntFromInterval(8, 18)
 		const intRange = `${rndInt - 1}% - ${rndInt + 1}%`;
-		return res.json({ calculationId: newScore.rows[0].calculation_id, intRange });
+		const loanRange = `$${Number(loan_amount) - 500} - $${Number(loan_amount) + 500}`;
+		return res.json({ calculationId: newScore.rows[0].calculation_id, intRange, loanRange });
 	}	catch (err) {
 		console.error(err.message);
     res.status(500).send("Server error");
