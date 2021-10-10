@@ -78,7 +78,7 @@ const SsnApplication = ({ setLoans, ...props }) => {
 											fontSize="30px"
 											px="10px"
 										>
-											Based on your credit profile your intRate for a loan will be {intRate}.
+											Based on your credit profile your interest rate for a loan will be {intRate}.
 										</Box>
 										<Flex
 											mt="30px"
