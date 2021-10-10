@@ -1,0 +1,132 @@
+{
+  "polyfillFiles": [
+    "static/chunks/polyfills-eef578260fd80f8fff94.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [
+    "static/9kGW14ob-xmwKo-wQIsj0/_buildManifest.js",
+    "static/9kGW14ob-xmwKo-wQIsj0/_ssgManifest.js"
+  ],
+  "pages": {
+    "/_app": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/css/1441146e3c6638fb7e28.css",
+      "static/chunks/pages/_app-746302cf3c5eaeb54834.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/pages/_error-e69890b6db18dcbc6fa4.js"
+    ],
+    "/borrowers": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/669-54f88d319b5783eb4704.js",
+      "static/chunks/557-6db3d143a75467e1b32e.js",
+      "static/chunks/pages/borrowers-0fbbdad088ff7d066c28.js"
+    ],
+    "/borrowers/dashboard": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/75fc9c18-36f01fedf8adc5f332b1.js",
+      "static/chunks/669-54f88d319b5783eb4704.js",
+      "static/chunks/557-6db3d143a75467e1b32e.js",
+      "static/chunks/665-a44e47ff7f08e1f1d66c.js",
+      "static/chunks/pages/borrowers/dashboard-425d8188b46c7cf625e2.js"
+    ],
+    "/borrowers/onboarding": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/669-54f88d319b5783eb4704.js",
+      "static/chunks/557-6db3d143a75467e1b32e.js",
+      "static/chunks/0-040d6a95d6ecf924e648.js",
+      "static/chunks/pages/borrowers/onboarding-2f59574ac4e604de1d1e.js"
+    ],
+    "/components/four": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/pages/components/four-309058fb503990f35a2a.js"
+    ],
+    "/components/loanStatusComponents/approvedLoanStatus": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/75fc9c18-36f01fedf8adc5f332b1.js",
+      "static/chunks/669-54f88d319b5783eb4704.js",
+      "static/chunks/665-a44e47ff7f08e1f1d66c.js",
+      "static/chunks/pages/components/loanStatusComponents/approvedLoanStatus-674554b7a1cc94caf3b8.js"
+    ],
+    "/components/loanStatusComponents/pendingLoanStatus": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/75fc9c18-36f01fedf8adc5f332b1.js",
+      "static/chunks/665-a44e47ff7f08e1f1d66c.js",
+      "static/chunks/pages/components/loanStatusComponents/pendingLoanStatus-605f34c1e41e9c699a18.js"
+    ],
+    "/components/loanStatusComponents/rejectedLoanStatus": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/75fc9c18-36f01fedf8adc5f332b1.js",
+      "static/chunks/665-a44e47ff7f08e1f1d66c.js",
+      "static/chunks/pages/components/loanStatusComponents/rejectedLoanStatus-a4080cc07bf445dcd40f.js"
+    ],
+    "/components/loanStatusComponents/ssnApplication": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/669-54f88d319b5783eb4704.js",
+      "static/chunks/557-6db3d143a75467e1b32e.js",
+      "static/chunks/pages/components/loanStatusComponents/ssnApplication-586605e8646cf40f2088.js"
+    ],
+    "/components/one": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/pages/components/one-94f544551b072aed1ec3.js"
+    ],
+    "/components/reUsable/header": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/pages/components/reUsable/header-fdaa8516ce3278a0158d.js"
+    ],
+    "/components/reUsable/login": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/669-54f88d319b5783eb4704.js",
+      "static/chunks/557-6db3d143a75467e1b32e.js",
+      "static/chunks/pages/components/reUsable/login-5e44a99b2eca50f37b6f.js"
+    ],
+    "/components/signUp": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/0-040d6a95d6ecf924e648.js",
+      "static/chunks/pages/components/signUp-0cdec8c8c2ab0c54f1eb.js"
+    ],
+    "/components/three": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/pages/components/three-f4bd4529080d7f7f3acb.js"
+    ],
+    "/components/two": [
+      "static/chunks/webpack-277c75ec70a3d22a400d.js",
+      "static/chunks/framework-92300432a1172ef1338b.js",
+      "static/chunks/main-ad3c6f40b8923fce47c4.js",
+      "static/chunks/pages/components/two-fe7ffc0027c085297329.js"
+    ]
+  },
+  "ampFirstPages": []
+}
