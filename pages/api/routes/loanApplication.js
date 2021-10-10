@@ -78,7 +78,12 @@ router.post("/apply", async (req, res) => {
 				div_chargeoff_within_12_mths_open_acc,div_pub_rec_bankruptcies_total_acc,
 				div_tax_liens_total_acc,div_delinq_amnt_tot_cur_bal,div_loan_amnt_non_revol_bal,
 				div_acc_open_past_24mths_open_acc,default_probability_percent_at_issue,
-				approval_status,approver_id,pending_ids,rejected_ids,borrower_id	
+				approval_status,approver_id,pending_ids,rejected_ids,borrower_id,secondary_approver_id,
+				num_pymnts,loan_break_d_year,loan_break_d_month,loan_amnt_sec,loan_break_month_number,
+				us_unemploy_rate_sec_half_avg,default_probability_percent_updated,num_pymnts_on_time,
+				num_pymnts_late,num_pymnts_missed,total_pymnt_on_time,total_pymnt_late,total_pymnt_missed
+				late_duration_days_total,missed_duration_days_total,loan_id_lc
+
 		 )
 		 SELECT loan_amnt,term,interest_rate_percent,installment,loan_grade,
 			loan_sub_grade,emp_title,emp_length,home_ownership,annual_inc,
@@ -105,7 +110,11 @@ router.post("/apply", async (req, res) => {
 			div_chargeoff_within_12_mths_open_acc,div_pub_rec_bankruptcies_total_acc,
 			div_tax_liens_total_acc,div_delinq_amnt_tot_cur_bal,div_loan_amnt_non_revol_bal,
 			div_acc_open_past_24mths_open_acc,default_probability_percent_at_issue,
-			approval_status,approver_id,pending_ids,rejected_ids,borrower_id	
+			approval_status,approver_id,pending_ids,rejected_ids,borrower_id,secondary_approver_id,
+			num_pymnts,loan_break_d_year,loan_break_d_month,loan_amnt_sec,loan_break_month_number,
+			us_unemploy_rate_sec_half_avg,default_probability_percent_updated,num_pymnts_on_time,
+			num_pymnts_late,num_pymnts_missed,total_pymnt_on_time,total_pymnt_late,total_pymnt_missed
+			late_duration_days_total,missed_duration_days_total,loan_id_lc	
 			FROM loans WHERE loan_id=$1 
 			RETURNING *
 		 `,
